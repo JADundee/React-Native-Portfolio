@@ -1,22 +1,20 @@
 import { Link } from 'expo-router'
 import React from 'react'
-import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native'
-
-import icedCoffeeImg from "@/assets/images/iced-coffee.png"
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 
 const app = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground
+      {/* <ImageBackground
         source={icedCoffeeImg}
         resizeMode='cover'
         style={styles.image}
-      >
-      <Text style={styles.title}>Coffee Shop</Text>
+      > */}
+      <Text style={styles.title}>Portfolio</Text>
 
       <Link href="/projects" style={{ marginHorizontal: 'auto'}} asChild>
       <Pressable style={styles.button}>
-        <Text style={styles.buttonText}>Our Projects</Text>
+        <Text style={styles.buttonText}>Projects</Text>
       </Pressable>
       </Link>
       <Link href="/skills" style={{ marginHorizontal: 'auto'}} asChild>
@@ -25,7 +23,7 @@ const app = () => {
       </Pressable>
       </Link>
 
-      </ImageBackground>
+      {/* </ImageBackground> */}
     </View>
   )
 }

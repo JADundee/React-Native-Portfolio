@@ -1,57 +1,46 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
+import { ProgressBar } from '@/components/ProgressBar';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
+import { SKILLS } from '@/constants/Skills';
 
-import icedCoffeeImg from "@/assets/images/iced-coffee.png"
+/* import icedCoffeeImg from "@/assets/images/iced-coffee.png" */
 
 
-export default function TabTwoScreen() {
+export default function SkillsScreen() {
+  console.log("SKILLS value:", SKILLS);
+SKILLS.forEach((g, i) => console.log(`Group ${i}:`, g));
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          style={styles.headerImage}
-          source={icedCoffeeImg}
-        />
-      }>
+    <ParallaxScrollView headerBackgroundColor={{ light: "#E8E8E8", dark: "#353636" }} headerImage={null}>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Hours</ThemedText>
+        <ThemedText type="title">My Skills</ThemedText>
       </ThemedView>
-      <Collapsible title="Monday to Friday">
-        <ThemedText>
-          09:00 - 19:00
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Saturday">
-        <ThemedText>
-          10:00 - 17:00
-        </ThemedText>
-      </Collapsible>
-      <Collapsible title="Sunday">
-        <ThemedText>
-          Closed.
-        </ThemedText>
-      </Collapsible>
+
+      {SKILLS.map((group, index) => (
+        <Collapsible key={index} title={group.category}>
+          {group.items.map((skill, idx) => (
+            <View key={idx} style={styles.skillRow}>
+              <ThemedText>{skill.name}</ThemedText>
+              <ProgressBar value={skill.level} />
+            </View>
+          ))}
+        </Collapsible>
+      ))}
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
+    marginBottom: 10,
+  },
+  skillRow: {
+    marginBottom: 12,
   },
 });

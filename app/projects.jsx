@@ -1,20 +1,20 @@
 import {
-    Appearance,
-    FlatList,
-    Image,
-    Platform,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    View
+  Appearance,
+  FlatList,
+  Linking,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 import { Colors } from "@/constants/Colors";
-import MENU_IMAGES from '@/constants/MenuImages';
-import { MENU_ITEMS } from '@/constants/MenuItems';
+import { PROJECTS } from "@/constants/Projects";
 
-export default function MenuScreen() {
+export default function ProjectsScreen() {
     const colorScheme = Appearance.getColorScheme()
 
     const theme = colorScheme === 'dark' ? Colors.dark : Colors.light
@@ -25,87 +25,102 @@ export default function MenuScreen() {
 
     const separatorComp = <View style={styles.separator} />
     
-    const footerComp = <View style={{ height: 30 }} />
+    const footerComp = <View style={{ height: 40 }} />
+
+    const handleProjectPress = (url, string) => {
+    if (url) Linking.openURL(url);
+  };
 
     return (
-        <Container>
-
-            <FlatList
-                data={MENU_ITEMS}
-                keyExtractor={(item) => item.id.toString()}
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={styles.contentContainer}
-                ItemSeparatorComponent={separatorComp}
-                //ListHeaderComponent={headerComp}
-                ListFooterComponent={footerComp}
-                ListFooterComponentStyle={styles.footerComp}
-                renderItem={({ item }) => (
-                    <View style={styles.row}>
-                        <View style={styles.menuTextRow}>
-                            <Text style={[styles.menuItemTitle, styles.menuItemText]}>{item.title}</Text>
-                            <Text style={styles.menuItemText}>{item.description}</Text>
-                        </View>
-                        <Image
-                            source={MENU_IMAGES[item.id - 1]}
-                            style={styles.menuImage}
-                        />
-                    </View>
-                )}
-            />
-
-        </Container>
+       <Container>
+      <FlatList
+        data={PROJECTS}
+        keyExtractor={(item) => item.id.toString()}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainer}
+        ItemSeparatorComponent={separatorComp}
+        ListFooterComponent={footerComp}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.card}
+            activeOpacity={0.85}
+            onPress={() => handleProjectPress(item.link)}
+          >
+            <View style={styles.textContainer}>
+              <Text style={styles.projectTitle}>{item.title}</Text>
+              <Text style={styles.projectDescription}>{item.description}</Text>
+              {item.techStack && (
+                <Text style={styles.techStack}>Tech: {item.techStack}</Text>
+              )}
+            </View>
+            {/* <Image
+              source={PROJECT_IMAGES[item.id - 1]}
+              style={styles.projectImage}
+              resizeMode="cover"
+            /> */}
+          </TouchableOpacity>
+        )}
+      />
+    </Container>
     )
 }
 
 function createStyles(theme, colorScheme) {
     return StyleSheet.create({
-        contentContainer: {
-            paddingTop: 10,
-            paddingBottom: 20,
-            paddingHorizontal: 12,
-            backgroundColor: theme.background,
-        },
-        separator: {
-            height: 1,
-            backgroundColor: colorScheme === 'dark' ? 'papayawhip' : '#000',
-            width: '50%',
-            maxWidth: 300,
-            marginHorizontal: 'auto',
-            marginBottom: 10,
-        },
-        footerComp: {
-            marginHorizontal: 'auto',
-        },
-        row: {
-            flexDirection: 'row',
-            width: '100%',
-            maxWidth: 600,
-            height: 100,
-            marginBottom:10,
-            borderStyle: 'solid',
-            borderColor: colorScheme === 'dark' ? 'papayawhip' : '#000',
-            borderWidth: 1,
-            borderRadius: 20,
-            overflow: 'hidden',
-            marginHorizontal: 'auto',
-        },
-        menuTextRow: {
-            width: '65%',
-            paddingTop: 10,
-            paddingleft: 10,
-            paddingright: 5,
-            flexGrow: 1,
-        },
-        menuItemTitle: {
-            fontSize: 18,
-            textDecorationLine: 'underline',
-        },
-        menuItemText: {
-            color: theme.text,
-        },
-        menuImage: {
-            width: 100,
-            height: 100,
-        }
+       contentContainer: {
+      paddingTop: 10,
+      paddingBottom: 20,
+      paddingHorizontal: 12,
+      backgroundColor: theme.background,
+      alignItems: "center",
+    },
+    separator: {
+      height: 1,
+      backgroundColor: colorScheme === "dark" ? "papayawhip" : "#333",
+      width: "50%",
+      maxWidth: 300,
+      marginBottom: 12,
+    },
+    card: {
+      flexDirection: "row",
+      alignItems: "center",
+      width: "100%",
+      maxWidth: 600,
+      borderWidth: 1,
+      borderColor: colorScheme === "dark" ? "papayawhip" : "#000",
+      borderRadius: 16,
+      overflow: "hidden",
+      backgroundColor: theme.cardBackground || theme.background,
+      shadowColor: "#000",
+      shadowOpacity: 0.15,
+      shadowRadius: 4,
+      elevation: 3,
+      marginBottom: 12,
+    },
+    textContainer: {
+      flex: 1,
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+    },
+    projectTitle: {
+      fontSize: 20,
+      fontWeight: "600",
+      color: theme.text,
+      marginBottom: 4,
+    },
+    projectDescription: {
+      fontSize: 14,
+      color: theme.textSecondary || theme.text,
+      marginBottom: 6,
+    },
+    techStack: {
+      fontSize: 12,
+      fontStyle: "italic",
+      color: theme.textSecondary || theme.text,
+    },
+    projectImage: {
+      width: 100,
+      height: 100,
+    },
     })
 }
