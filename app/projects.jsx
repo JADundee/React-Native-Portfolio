@@ -79,7 +79,8 @@ function createStyles(theme, colorScheme) {
     card: {
       flexDirection: 'row',
       alignItems: 'center',
-      width: 640,
+      minWidth: 300,
+      maxWidth: 640,
       borderWidth: 1,
       borderColor: colorScheme === 'dark' ? '#475569' : '#e2e8f0',
       borderRadius: 20,

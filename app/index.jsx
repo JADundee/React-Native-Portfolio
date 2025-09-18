@@ -33,7 +33,7 @@ const app = () => {
       </Link>
       </Text>
 
-      <Text style={styles.footer}>github: 
+      {/* <Text style={styles.footer}>github: 
       <Link href="https://github.com/JADundee" asChild>
         <Text style={styles.link}>github.com/JADundee</Text>
       </Link>
@@ -43,7 +43,7 @@ const app = () => {
       <Link href="https://www.dropbox.com/scl/fi/krfzmv18xj2fds30eowxk/CV3.pdf?rlkey=oufy7w0amf3syg3pzqmmefk2j&st=ppyjj2wo&dl=0" asChild>
         <Text style={styles.link}>Download CV/Resume</Text>
       </Link>
-      </Text>
+      </Text> */}
 
     </View>
   )
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     fontSize: 42,
     fontWeight: '900',
     textAlign: 'center',
-    marginBottom: 80,
+    marginBottom: 20,
     textTransform: 'uppercase',
     letterSpacing: 2,
     textShadowColor: '#062a3bff',
@@ -80,11 +80,11 @@ const styles = StyleSheet.create({
   },
   body: {
     color: '#e0f2fe', 
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '900',
     textAlign: 'center',
-    marginBottom: 80,
-    width: '50%',
+    marginBottom: 20,
+    width: '75%',
     letterSpacing: 1,
     textShadowColor: '#0ea5e9',
     textShadowOffset: { width: 0, height: 2 },
@@ -95,9 +95,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '900',
     textAlign: 'center',
-   
     marginBottom: 10,
-    width: '50%',
+    width: '100%',
     letterSpacing: 1,
     textShadowColor: '#0ea5e9',
     textShadowOffset: { width: 0, height: 2 },
