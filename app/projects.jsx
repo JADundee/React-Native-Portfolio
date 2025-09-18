@@ -89,9 +89,9 @@ function createStyles(theme, colorScheme) {
         colorScheme === 'dark'
           ? 'rgba(30,41,59,0.9)'
           : 'rgba(241,245,249,0.9)',
-      shadowColor: '#0ea5e9',
-      shadowOpacity: 0.25,
-      shadowRadius: 10,
+      textShadowColor: '#0ea5e9',
+      textShadowOpacity: 0.25,
+      textShadowRadius: 10,
       elevation: 6,
       marginBottom: 20,
     },
