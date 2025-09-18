@@ -79,8 +79,7 @@ function createStyles(theme, colorScheme) {
     card: {
       flexDirection: 'row',
       alignItems: 'center',
-      width: '100%',
-      maxWidth: 640,
+      width: 640,
       borderWidth: 1,
       borderColor: colorScheme === 'dark' ? '#475569' : '#e2e8f0',
       borderRadius: 20,
@@ -117,12 +116,6 @@ function createStyles(theme, colorScheme) {
       fontSize: 13,
       fontStyle: 'italic',
       color: theme.textSecondary || theme.text,
-    },
-    projectImage: {
-      width: 110,
-      height: 110,
-      borderTopRightRadius: 20,
-      borderBottomRightRadius: 20,
     },
     })
 }
