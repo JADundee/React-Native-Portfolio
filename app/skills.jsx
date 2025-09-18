@@ -11,8 +11,6 @@ import { SKILLS } from '@/constants/Skills';
 
 
 export default function Skills() {
-  
-SKILLS.forEach((g, i) => console.log(`Group ${i}:`, g));
 
   return (
     <ParallaxScrollView headerBackgroundColor={{ light: "#E8E8E8", dark: "#353636" }} headerImage={null} contentContainerStyle={styles.scrollContent}>
