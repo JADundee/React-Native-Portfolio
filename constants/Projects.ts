@@ -1,4 +1,4 @@
-// Example: src/constants/Projects.ts
+
 export const PROJECTS = [
   {
     id: 1,

@@ -14,7 +14,7 @@ import {
 import { Colors } from "@/constants/Colors";
 import { PROJECTS } from "@/constants/Projects";
 
-export default function ProjectsScreen() {
+export default function Projects() {
     const colorScheme = Appearance.getColorScheme()
 
     const theme = colorScheme === 'dark' ? Colors.dark : Colors.light
@@ -25,7 +25,7 @@ export default function ProjectsScreen() {
 
     const separatorComp = <View style={styles.separator} />
     
-    const footerComp = <View style={{ height: 40 }} />
+    const footerComp = <View style={{ height: 10 }} />
 
     const handleProjectPress = (url, string) => {
     if (url) Linking.openURL(url);
@@ -53,11 +53,6 @@ export default function ProjectsScreen() {
                 <Text style={styles.techStack}>Tech: {item.techStack}</Text>
               )}
             </View>
-            {/* <Image
-              source={PROJECT_IMAGES[item.id - 1]}
-              style={styles.projectImage}
-              resizeMode="cover"
-            /> */}
           </TouchableOpacity>
         )}
       />
@@ -67,60 +62,67 @@ export default function ProjectsScreen() {
 
 function createStyles(theme, colorScheme) {
     return StyleSheet.create({
-       contentContainer: {
-      paddingTop: 10,
-      paddingBottom: 20,
-      paddingHorizontal: 12,
+      contentContainer: {
+      paddingTop: 40,
+      paddingBottom: 220,
+      paddingHorizontal: 18,
       backgroundColor: theme.background,
-      alignItems: "center",
+      alignItems: 'center',
     },
     separator: {
       height: 1,
-      backgroundColor: colorScheme === "dark" ? "papayawhip" : "#333",
-      width: "50%",
-      maxWidth: 300,
-      marginBottom: 12,
+      backgroundColor: colorScheme === 'dark' ? '#334155' : '#cbd5e1',
+      width: '70%',
+      maxWidth: 340,
+      marginBottom: 18,
     },
     card: {
-      flexDirection: "row",
-      alignItems: "center",
-      width: "100%",
-      maxWidth: 600,
+      flexDirection: 'row',
+      alignItems: 'center',
+      width: '100%',
+      maxWidth: 640,
       borderWidth: 1,
-      borderColor: colorScheme === "dark" ? "papayawhip" : "#000",
-      borderRadius: 16,
-      overflow: "hidden",
-      backgroundColor: theme.cardBackground || theme.background,
-      shadowColor: "#000",
-      shadowOpacity: 0.15,
-      shadowRadius: 4,
-      elevation: 3,
-      marginBottom: 12,
+      borderColor: colorScheme === 'dark' ? '#475569' : '#e2e8f0',
+      borderRadius: 20,
+      overflow: 'hidden',
+      backgroundColor:
+        colorScheme === 'dark'
+          ? 'rgba(30,41,59,0.9)'
+          : 'rgba(241,245,249,0.9)',
+      shadowColor: '#0ea5e9',
+      shadowOpacity: 0.25,
+      shadowRadius: 10,
+      elevation: 6,
+      marginBottom: 20,
     },
     textContainer: {
       flex: 1,
-      paddingVertical: 10,
-      paddingHorizontal: 12,
+      paddingVertical: 16,
+      paddingHorizontal: 20,
     },
     projectTitle: {
-      fontSize: 20,
-      fontWeight: "600",
+      fontSize: 24,
+      fontWeight: '800',
       color: theme.text,
-      marginBottom: 4,
+      marginBottom: 8,
+      letterSpacing: 1,
     },
     projectDescription: {
-      fontSize: 14,
+      fontSize: 15,
       color: theme.textSecondary || theme.text,
-      marginBottom: 6,
+      marginBottom: 10,
+      lineHeight: 22,
     },
     techStack: {
-      fontSize: 12,
-      fontStyle: "italic",
+      fontSize: 13,
+      fontStyle: 'italic',
       color: theme.textSecondary || theme.text,
     },
     projectImage: {
-      width: 100,
-      height: 100,
+      width: 110,
+      height: 110,
+      borderTopRightRadius: 20,
+      borderBottomRightRadius: 20,
     },
     })
 }

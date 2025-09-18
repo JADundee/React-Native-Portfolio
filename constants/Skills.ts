@@ -1,4 +1,4 @@
-// src/constants/Skills.ts
+
 export const SKILLS = [
   {
     category: "Frontend Development",

@@ -5,11 +5,7 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 const app = () => {
   return (
     <View style={styles.container}>
-      {/* <ImageBackground
-        source={icedCoffeeImg}
-        resizeMode='cover'
-        style={styles.image}
-      > */}
+      
       <Text style={styles.title}>Portfolio</Text>
 
       <Link href="/projects" style={{ marginHorizontal: 'auto'}} asChild>
@@ -23,7 +19,6 @@ const app = () => {
       </Pressable>
       </Link>
 
-      {/* </ImageBackground> */}
     </View>
   )
 }
@@ -33,46 +28,57 @@ export default app
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#0f172a', 
+    paddingHorizontal: 20,
   },
   image: {
     width: '100%',
     height: '100%',
     flex: 1,
     resizeMode: 'cover',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   title: {
-    color: 'white',
+    color: '#38bdf8', 
     fontSize: 42,
-    fontWeight: 'bold',
+    fontWeight: '900',
     textAlign: 'center',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    marginBottom: 120,
+    marginBottom: 80,
+    textTransform: 'uppercase',
+    letterSpacing: 2,
+    textShadowColor: '#0ea5e9',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 10,
   },
   link: {
-    color: 'white',
-    fontSize: 42,
-    fontWeight: 'bold',
+    color: '#38bdf8',
+    fontSize: 18,
+    fontWeight: '700',
     textAlign: 'center',
     textDecorationLine: 'underline',
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    padding: 4,
+    padding: 6,
   },
   button: {
     height: 60,
-    width: 150,
-    borderRadius: 20,
+    width: 200,
+    borderRadius: 30,
     justifyContent: 'center',
-    backgroundColor: 'rgba(0,0,0,0.75)',
-    padding: 6,
-    marginBottom: 50,
+    alignItems: 'center',
+    backgroundColor: 'rgba(56,189,248,0.15)',
+    borderWidth: 1,
+    borderColor: '#38bdf8',
+    marginBottom: 30,
+    shadowColor: '#38bdf8',
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    shadowOffset: { width: 0, height: 4 },
   },
   buttonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 4,
-  }
+    color: '#e0f2fe',
+    fontSize: 20,
+    fontWeight: '700',
+    letterSpacing: 1,
+  },
 })

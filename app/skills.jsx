@@ -10,12 +10,12 @@ import { SKILLS } from '@/constants/Skills';
 /* import icedCoffeeImg from "@/assets/images/iced-coffee.png" */
 
 
-export default function SkillsScreen() {
-  console.log("SKILLS value:", SKILLS);
+export default function Skills() {
+  
 SKILLS.forEach((g, i) => console.log(`Group ${i}:`, g));
 
   return (
-    <ParallaxScrollView headerBackgroundColor={{ light: "#E8E8E8", dark: "#353636" }} headerImage={null}>
+    <ParallaxScrollView headerBackgroundColor={{ light: "#E8E8E8", dark: "#353636" }} headerImage={null} contentContainerStyle={styles.scrollContent}>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">My Skills</ThemedText>
       </ThemedView>
@@ -36,11 +36,27 @@ SKILLS.forEach((g, i) => console.log(`Group ${i}:`, g));
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: "row",
-    gap: 8,
-    marginBottom: 10,
+    flexDirection: 'row',
+    gap: 12,
+    marginBottom: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    borderRadius: 20,
   },
   skillRow: {
-    marginBottom: 12,
+    marginBottom: 16,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: 'rgba(255,255,255,0.08)', // Glassy panel
+    borderRadius: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 },
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.1)',
   },
 });
